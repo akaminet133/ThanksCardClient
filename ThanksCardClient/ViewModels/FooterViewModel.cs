@@ -93,8 +93,10 @@ namespace ThanksCardClient.ViewModels
 
             // HeaderRegion, FooterRegion を破棄して、ContentRegion をログオン画面に遷移させる。
             this.regionManager.Regions["HeaderRegion"].RemoveAll();
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.Logon));
+            this.regionManager.RequestNavigate("LogonRegion", nameof(Views.Logon));
             this.regionManager.Regions["FooterRegion"].RemoveAll();
+            this.regionManager.Regions["MenuRegion"].RemoveAll();
+            this.regionManager.Regions["ContentRegion"].RemoveAll();
         }
         #endregion
     }

@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ThanksCardClient.Services;
 
-// User クラス
 namespace ThanksCardClient.Models
 {
     public class User : BindableBase

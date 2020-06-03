@@ -59,7 +59,8 @@ namespace ThanksCardClient.ViewModels
                 this.ErrorMessage = "";
                 this.regionManager.RequestNavigate("HeaderRegion", nameof(Views.Header));
                 this.regionManager.RequestNavigate("ContentRegion", nameof(Views.ThanksCardList));
-                this.regionManager.RequestNavigate("FooterRegion", nameof(Views.Footer));
+                this.regionManager.RequestNavigate("MenuRegion", nameof(Views.Footer));
+                this.regionManager.Regions["LogonRegion"].RemoveAll();
             }
             else
             {
