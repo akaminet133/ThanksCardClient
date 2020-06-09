@@ -3,8 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="600" Width="800">
+        Title="{Binding Title}" Height="550" Width="900">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="hhh.jpg"/>
+        </Grid.Background>
         <ContentControl prism:RegionManager.RegionName="LogonRegion">
         </ContentControl>
         <ContentControl prism:RegionManager.RegionName="HeaderRegion" Margin="0,0,-0.4,545.4" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
