@@ -2,15 +2,50 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/"             
-             prism:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
-        <StackPanel>
-            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red"/>
-            <TextBlock Text="Name:"/>
-            <TextBox Text="{Binding User.Name}"/>
-            <TextBlock Text="Password:"/>
-            <TextBox Text="{Binding User.Password}"/>
-            <Button Content="Logon" Command="{Binding LogonCommand}"/>
+             prism:ViewModelLocator.AutoWireViewModel="True" Height="210" Width="245">
+    <Grid Margin="-15,0,-0.2,-0.4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.OpacityMask>
+            <RadialGradientBrush>
+                <GradientStop Color="#FFB478F3" Offset="0"/>
+                <GradientStop Color="#FFF60B0B" Offset="1"/>
+            </RadialGradientBrush>
+        </Grid.OpacityMask>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="4" Margin="-220,-80,-220,-145.4" Grid.RowSpan="3">
+            <TextBlock Height="74" Margin="-110,0" FontSize="72" TextAlignment="Center" Text="TOMOYOSE HOTEL" FontFamily="HGSMinchoB" Foreground="#FFF1F2F7" TextDecorations="{x:Null}"/>
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" TextAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock Text=""/>
+            <TextBlock Text=""/>
+            <TextBlock Text=""/>
+            <TextBlock Text=""/>
+            <TextBlock TextAlignment="Center" FontWeight="Bold" Height="35" FontSize="24" Foreground="#FFE7E8EC" FontFamily="Yu Gothic" Margin="0,0,25,0"><Run Text="ユーザー名"/><Run Text="と"/><Run Text="パスワード"/><Run Text="を入力してください！"/></TextBlock>
+            <TextBlock Text=""/>
+            <TextBlock Text=""/>
+            <TextBlock FontWeight="Bold" Height="35" FontSize="16" Foreground="#FFF6F6F6" TextAlignment="Center"><Run Foreground="#FFE7E8EC" FontSize="24" FontFamily="Yu Gothic" Text="ユーザー名:   "/><InlineUIContainer> 
+                    <TextBox Width="380" Text="{Binding User.Name}" RenderTransformOrigin="2.5,3.011" Height="30"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text=""/>
+            <TextBlock Text=""/>
+            <TextBlock FontWeight="Bold" Height="35" FontSize="16" Foreground="#FFF6F6F6" TextAlignment="Center"><Run Foreground="#FFE7E8EC" FontSize="24" FontFamily="Yu Gothic" Text="パスワード:   "/><InlineUIContainer>
+                    <TextBox Text="{Binding User.Password}" RenderTransformOrigin="0.511,4.114" Height="30" Width="380"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text=""/>
+            <TextBlock Text=""/>
+            <TextBlock Text=""/>
+            <Button Content="ログイン" Command="{Binding LogonCommand}" Margin="285,0" Height="30" RenderTransformOrigin="0.5,0.5" Click="Button_Click" FontSize="20" FontFamily="Yu Gothic" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Background="#FFFBFCFC"/>
         </StackPanel>
     </Grid>
 </UserControl>
