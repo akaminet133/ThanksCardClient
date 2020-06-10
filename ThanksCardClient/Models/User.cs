@@ -19,6 +19,24 @@ namespace ThanksCardClient.Models
         }
         #endregion
 
+        #region CdProperty
+        private string _Cd;
+        public string Cd
+        {
+            get { return _Cd; }
+            set { SetProperty(ref _Cd, value); }
+        }
+        #endregion
+
+        #region F_NameProperty
+        private string _F_Name;
+        public string F_Name
+        {
+            get { return _F_Name; }
+            set { SetProperty(ref _F_Name, value); }
+        }
+        #endregion
+
         #region NameProperty
         private string _Name;
         public string Name
@@ -37,6 +55,51 @@ namespace ThanksCardClient.Models
         }
         #endregion
 
+        #region TelProperty
+        private string _Tel;
+        public string Tel
+        {
+            get { return _Tel; }
+            set { SetProperty(ref _Tel, value); }
+        }
+        #endregion
+
+        #region E_mailProperty
+        private string _E_mail;
+        public string E_mail
+        {
+            get { return _E_mail; }
+            set { SetProperty(ref _E_mail, value); }
+        }
+        #endregion
+
+        #region Del_flgProperty
+        private int _Del_flg;
+        public int Del_flg
+        {
+            get { return _Del_flg; }
+            set { SetProperty(ref _Del_flg, value); }
+        }
+        #endregion
+
+        #region IsUsersProperty
+        private bool _IsUsers;
+        public bool IsUsers
+        {
+            get { return _IsUsers; }
+            set { SetProperty(ref _IsUsers, value); }
+        }
+        #endregion
+
+        #region IsManagementProperty
+        private bool _IsManagement;
+        public bool IsManagement
+        {
+            get { return _IsManagement; }
+            set { SetProperty(ref _IsManagement, value); }
+        }
+        #endregion
+
         #region IsAdminProperty
         private bool _IsAdmin;
         public bool IsAdmin
@@ -44,26 +107,17 @@ namespace ThanksCardClient.Models
             get { return _IsAdmin; }
             set { SetProperty(ref _IsAdmin, value); }
         }
-        #endregion
 
-        #region DepartmentIdProperty
-        private long? _DepartmentId;
-        public long? DepartmentId
+        #region User_Dep_KanriProperty
+        private List<User_Dep_Kanri> _User_Dep_Kanris;
+        public List<User_Dep_Kanri> User_Dep_Kanris
         {
-            get { return _DepartmentId; }
-            set { SetProperty(ref _DepartmentId, value); }
+            get { return _User_Dep_Kanris; }
+            set { SetProperty(ref _User_Dep_Kanris, value); }
         }
         #endregion
 
-        #region DepartmentProperty
-        private Department _Department;
-        public Department Department
-        {
-            get { return _Department; }
-            set { SetProperty(ref _Department, value); }
-        }
         #endregion
-
         public async Task<User> LogonAsync()
         {
             IRestService rest = new RestService();
@@ -71,12 +125,12 @@ namespace ThanksCardClient.Models
             return authorizedUser;
         }
 
-        public async Task<List<User>> GetDepartmentUsersAsync(long? DepartmentId)
+        /*public async Task<List<User>> GetDepartmentUsersAsync(long? DepartmentId)
         {
             IRestService rest = new RestService();
             List<User> users = await rest.GetDepartmentUsersAsync(DepartmentId);
             return users;
-        }
+        }*/
 
         public async Task<List<User>> GetUsersAsync()
         {

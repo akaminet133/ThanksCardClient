@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Comment_RirekiClient.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,7 +15,13 @@ namespace ThanksCardClient.Services
         Task<User> LogonAsync(User user);
 
         // DepartmentUsers REST API Client
-        Task<List<User>> GetDepartmentUsersAsync(long? DepartmentId);
+        //Task<List<User>> GetDepartmentUsersAsync(long? DepartmentId);
+
+        // User_Dep_Kanri REST API Client
+        Task<List<User_Dep_Kanri>> GetUser_Dep_KanrisAsync();
+        Task<User_Dep_Kanri> PostUser_Dep_KanriAsync(User_Dep_Kanri user_Dep_Kanri);
+        Task<User_Dep_Kanri> PutUser_Dep_KanriAsync(User_Dep_Kanri user_Dep_Kanri);
+        Task<User_Dep_Kanri> DeleteUser_Dep_KanriAsync(long Id);
 
         // User REST API Client
         Task<List<User>> GetUsersAsync();
@@ -28,14 +35,24 @@ namespace ThanksCardClient.Services
         Task<Department> PutDepartmentAsync(Department department);
         Task<Department> DeleteDepartmentAsync(long Id);
 
+        // Section REST API Client
+        Task<List<Section>> GetSectionsAsync();
+        Task<Section> PostSectionAsync(Section department);
+        Task<Section> PutSectionAsync(Section department);
+        Task<Section> DeleteSectionAsync(long Id);
+
         // TanksCard REST API Client
         Task<List<ThanksCard>> GetThanksCardsAsync();
         Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard);
 
-        // Tag REST API Client
-        Task<List<Tag>> GetTagsAsync();
-        Task<Tag> PostTagAsync(Tag tag);
-        Task<Tag> PutTagAsync(Tag tag);
-        Task<Tag> DeleteTagAsync(long Id);
+        /* Comment REST API Client
+        Task<List<Comment_Rireki>> GetComment_RirekisAsync();
+        Task<Comment_Rireki> PostComment_RirekiAsync(Comment_Rireki comment_Rireki);*/
+
+        // Category REST API Client
+        Task<List<Category>> GetCategorysAsync();
+        Task<Category> PostCategoryAsync(Category Category);
+        Task<Category> PutCategoryAsync(Category Category);
+        Task<Category> DeleteCategoryAsync(long Id);
     }
 }

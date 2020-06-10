@@ -3,11 +3,11 @@
 namespace ThanksCardClient.Views
 {
     /// <summary>
-    /// Interaction logic for TagEdit
+    /// Interaction logic for CategoryMst
     /// </summary>
-    public partial class TagEdit : UserControl
+    public partial class CategoryMst : UserControl
     {
-        public TagEdit()
+        public CategoryMst()
         {
             InitializeComponent();
         }

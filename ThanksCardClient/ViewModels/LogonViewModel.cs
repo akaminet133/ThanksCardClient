@@ -35,11 +35,8 @@ namespace ThanksCardClient.ViewModels
         public LogonViewModel(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
-
             // 開発中のみアカウントを admin/admin でセットしておく。
             this.User = new User();
-            this.User.Name = "admin";
-            this.User.Password = "admin";
         }
 
         #region LogonCommand
@@ -59,13 +56,13 @@ namespace ThanksCardClient.ViewModels
                 this.ErrorMessage = "";
                 this.regionManager.RequestNavigate("HeaderRegion", nameof(Views.Header));
                 this.regionManager.RequestNavigate("ContentRegion", nameof(Views.ThanksCardList));
-                this.regionManager.RequestNavigate("MenuRegion", nameof(Views.Footer));
+                this.regionManager.RequestNavigate("MenuRegion", nameof(Views.Menu));
+                this.regionManager.RequestNavigate("FooterRegion", nameof(Views.Footer));
                 this.regionManager.Regions["LogonRegion"].RemoveAll();
             }
             else
             {
-                this.ErrorMessage = "ログオンに失敗しました。";
-            }
+                this.ErrorMessage = "ログオンに失敗しました。";            }
         }
         #endregion
     }

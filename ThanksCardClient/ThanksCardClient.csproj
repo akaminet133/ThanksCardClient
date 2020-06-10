@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,32 +59,50 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Comment_Rireki.cs" />
     <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Sections.cs" />
     <Compile Include="Models\ThanksCard.cs" />
-    <Compile Include="Models\ThanksCardTag.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\User_Dep_Kanri.cs" />
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Services\RestService.cs" />
     <Compile Include="Services\SessionService.cs" />
+    <Compile Include="ViewModels\PasswordBoxHelper.cs" />
+    <Compile Include="ViewModels\SectionCreateViewModel.cs" />
     <Compile Include="ViewModels\DepartmentCreateViewModel.cs" />
+    <Compile Include="ViewModels\SectionEditViewModel.cs" />
     <Compile Include="ViewModels\DepartmentEditViewModel.cs" />
+    <Compile Include="ViewModels\SectionMstViewModel.cs" />
     <Compile Include="ViewModels\DepartmentMstViewModel.cs" />
+    <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\FooterViewModel.cs" />
     <Compile Include="ViewModels\HeaderViewModel.cs" />
-    <Compile Include="ViewModels\TagCreateViewModel.cs" />
-    <Compile Include="ViewModels\TagEditViewModel.cs" />
-    <Compile Include="ViewModels\TagMstViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\CategoryCreateViewModel.cs" />
+    <Compile Include="ViewModels\CategoryEditViewModel.cs" />
+    <Compile Include="ViewModels\CategoryMstViewModel.cs" />
     <Compile Include="ViewModels\ThanksCardCreateViewModel.cs" />
     <Compile Include="ViewModels\ThanksCardListViewModel.cs" />
     <Compile Include="ViewModels\UserCreateViewModel.cs" />
     <Compile Include="ViewModels\UserEditViewModel.cs" />
     <Compile Include="ViewModels\UserMstViewModel.cs" />
+    <Compile Include="ViewModels\User_Kanri_Menu.cs" />
+    <Compile Include="Views\SectionCreate.xaml.cs">
+      <DependentUpon>SectionCreate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DepartmentCreate.xaml.cs">
       <DependentUpon>DepartmentCreate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SectionEdit.xaml.cs">
+      <DependentUpon>SectionEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DepartmentEdit.xaml.cs">
       <DependentUpon>DepartmentEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionMst.xaml.cs">
+      <DependentUpon>SectionMst.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DepartmentMst.xaml.cs">
       <DependentUpon>DepartmentMst.xaml</DependentUpon>
@@ -94,14 +113,20 @@
     <Compile Include="Views\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TagCreate.xaml.cs">
-      <DependentUpon>TagCreate.xaml</DependentUpon>
+    <Compile Include="Views\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TagEdit.xaml.cs">
-      <DependentUpon>TagEdit.xaml</DependentUpon>
+    <Compile Include="Views\PdfView.xaml.cs">
+      <DependentUpon>PdfView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TagMst.xaml.cs">
-      <DependentUpon>TagMst.xaml</DependentUpon>
+    <Compile Include="Views\CategoryCreate.xaml.cs">
+      <DependentUpon>CategoryCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoryEdit.xaml.cs">
+      <DependentUpon>CategoryEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoryMst.xaml.cs">
+      <DependentUpon>CategoryMst.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ThanksCardCreate.xaml.cs">
       <DependentUpon>ThanksCardCreate.xaml</DependentUpon>
@@ -118,13 +143,28 @@
     <Compile Include="Views\UserMst.xaml.cs">
       <DependentUpon>UserMst.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\User_Kanri_Menu.xaml.cs">
+      <DependentUpon>User_Kanri_Menu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\SectionCreate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\DepartmentCreate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SectionEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\DepartmentEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionMst.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DepartmentMst.xaml">
       <SubType>Designer</SubType>
@@ -159,15 +199,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\TagCreate.xaml">
+    <Page Include="Views\Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TagEdit.xaml">
+    <Page Include="Views\PdfView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TagMst.xaml">
+    <Page Include="Views\CategoryCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CategoryEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CategoryMst.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,6 +239,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\User_Kanri_Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -210,6 +262,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Image\manual.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -220,6 +273,15 @@
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Prism.Unity" Version="7.2.0.1367" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\hhh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\hhh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

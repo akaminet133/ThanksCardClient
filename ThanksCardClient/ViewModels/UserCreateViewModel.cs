@@ -12,6 +12,15 @@ namespace ThanksCardClient.ViewModels
     {
         private readonly IRegionManager regionManager;
 
+        #region User_Dep_KanriProperty
+        private User_Dep_Kanri _UDK;
+        public User_Dep_Kanri UDK
+        {
+            get { return _UDK; }
+            set { SetProperty(ref _UDK, value); }
+        }
+        #endregion
+
         #region UserProperty
         private User _User;
         public User User
@@ -38,7 +47,7 @@ namespace ThanksCardClient.ViewModels
         public async void OnNavigatedTo(NavigationContext navigationContext)
         {
             Department dept = new Department();
-            this.Departments = await dept.GetDepartmentsAsync();
+            this.Departments = await dept.GetDepartmentAsync();
 
             this.User = new User();
         }

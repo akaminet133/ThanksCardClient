@@ -8,16 +8,25 @@ using ThanksCardClient.Models;
 
 namespace ThanksCardClient.ViewModels
 {
-    public class TagEditViewModel : BindableBase, INavigationAware
+    public class CategoryCreateViewModel : BindableBase
     {
         private readonly IRegionManager regionManager;
 
-        #region TagProperty
-        private Tag _Tag;
-        public Tag Tag
+        #region CategoryProperty
+        private Category _Category;
+        public Category Category
         {
-            get { return _Tag; }
-            set { SetProperty(ref _Tag, value); }
+            get { return _Category; }
+            set { SetProperty(ref _Category, value); }
+        }
+        #endregion
+
+        #region DepartmentsProperty
+        private List<Department> _Departments;
+        public List<Department> Departments
+        {
+            get { return _Departments; }
+            set { SetProperty(ref _Departments, value); }
         }
         #endregion
 
@@ -30,26 +39,27 @@ namespace ThanksCardClient.ViewModels
         }
         #endregion
 
-        public TagEditViewModel(IRegionManager regionManager)
+        public CategoryCreateViewModel(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
+
+            this.Category = new Category();
         }
 
+        public async void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            Department dept = new Department();
+            this.Departments = await dept.GetDepartmentAsync();
+
+        }
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
             return true;
-
         }
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
             //throw new NotImplementedException();
-        }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            // 画面遷移元から送られる SelectedUser パラメーターを取得。
-            this.Tag = navigationContext.Parameters.GetValue<Tag>("SelectedTag");
         }
 
         #region SubmitCommand
@@ -59,11 +69,10 @@ namespace ThanksCardClient.ViewModels
 
         async void ExecuteSubmitCommand()
         {
-            Tag updatedTag = await this.Tag.PutTagAsync(this.Tag);
+            Category createdCategory = await Category.PostCategoryAsync(this.Category);
 
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.TagMst));
+            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.CategoryMst));
         }
         #endregion
-
     }
 }

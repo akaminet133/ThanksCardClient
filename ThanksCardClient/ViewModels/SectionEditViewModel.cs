@@ -8,16 +8,25 @@ using ThanksCardClient.Models;
 
 namespace ThanksCardClient.ViewModels
 {
-    public class DepartmentEditViewModel : BindableBase, INavigationAware
+    public class SectionEditViewModel : BindableBase, INavigationAware
     {
         private readonly IRegionManager regionManager;
 
-        #region DepartmentProperty
-        private Department _Department;
-        public Department Department
+        #region SectionProperty
+        private Section _Section;
+        public Section Section
         {
-            get { return _Department; }
-            set { SetProperty(ref _Department, value); }
+            get { return _Section; }
+            set { SetProperty(ref _Section, value); }
+        }
+        #endregion
+
+        #region SectionsProperty
+        private List<Section> _Sections;
+        public List<Section> Sections
+        {
+            get { return _Sections; }
+            set { SetProperty(ref _Sections, value); }
         }
         #endregion
 
@@ -39,7 +48,7 @@ namespace ThanksCardClient.ViewModels
         }
         #endregion
 
-        public DepartmentEditViewModel(IRegionManager regionManager)
+        public SectionEditViewModel(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
         }
@@ -55,18 +64,20 @@ namespace ThanksCardClient.ViewModels
             //throw new NotImplementedException();
         }
 
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public async void OnNavigatedTo(NavigationContext navigationContext)
         {
             // 画面遷移元から送られる SelectedCategory パラメーターを取得。
-            this.Department = navigationContext.Parameters.GetValue<Department>("SelectedDepartment");
-
-            this.UpdateDepartments();
-        }
-
-        private async void UpdateDepartments()
-        {
             Department dept = new Department();
             this.Departments = await dept.GetDepartmentAsync();
+            this.Section = navigationContext.Parameters.GetValue<Section>("SelectedSection");
+
+            this.UpdateSections();
+        }
+
+        private async void UpdateSections()
+        {
+            Section dept = new Section();
+            this.Sections = await dept.GetSectionsAsync();
         }
 
         #region SubmitCommand
@@ -76,9 +87,9 @@ namespace ThanksCardClient.ViewModels
 
         async void ExecuteSubmitCommand()
         {
-            Department updatedDepartment = await this.Department.PutDepartmentAsync(this.Department);
+            Section updatedSection = await this.Section.PutSectionAsync(this.Section);
 
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.DepartmentMst));
+            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.SectionMst));
         }
         #endregion
 

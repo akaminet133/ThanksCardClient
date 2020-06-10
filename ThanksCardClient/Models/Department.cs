@@ -20,12 +20,12 @@ namespace ThanksCardClient.Models
         }
         #endregion
 
-        #region CodeProperty
-        private int _Code;
-        public int Code
+        #region CdProperty
+        private string _Cd;
+        public string Cd
         {
-            get { return _Code; }
-            set { SetProperty(ref _Code, value); }
+            get { return _Cd; }
+            set { SetProperty(ref _Cd, value); }
         }
         #endregion
 
@@ -38,43 +38,34 @@ namespace ThanksCardClient.Models
         }
         #endregion
 
-        #region ParentIdProperty
-        private long? _ParentId;
-        public long? ParentId
+        #region Del_flgProperty
+        private int _Del_flg;
+        public int Del_flg
         {
-            get { return _ParentId; }
-            set { SetProperty(ref _ParentId, value); }
+            get { return _Del_flg; }
+            set { SetProperty(ref _Del_flg, value); }
         }
         #endregion
 
-        #region ParentProperty
-        private Department _Parent;
-        public Department Parent
+        #region SectionsProperty
+        private List<Section> _Sections;
+        public List<Section> Sections
         {
-            get { return _Parent; }
-            set { SetProperty(ref _Parent, value); }
+            get { return _Sections; }
+            set { SetProperty(ref _Sections, value); }
         }
         #endregion
 
-        #region ChildrenProperty
-        private List<Department> _Children;
-        public List<Department> Children
+        #region CategorysProperty
+        private List<Category> _Categorys;
+        public List<Category> Categorys
         {
-            get { return _Children; }
-            set { SetProperty(ref _Children, value); }
+            get { return _Categorys; }
+            set { SetProperty(ref _Categorys, value); }
         }
         #endregion
 
-        #region UsersProperty
-        private List<User> _Users;
-        public List<User> Users
-        {
-            get { return _Users; }
-            set { SetProperty(ref _Users, value); }
-        }
-        #endregion
-
-        public async Task<List<Department>> GetDepartmentsAsync()
+        public async Task<List<Department>> GetDepartmentAsync()
         {
             IRestService rest = new RestService();
             List<Department> Departments = await rest.GetDepartmentsAsync();

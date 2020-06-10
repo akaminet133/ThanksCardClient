@@ -8,16 +8,16 @@ using ThanksCardClient.Models;
 
 namespace ThanksCardClient.ViewModels
 {
-    public class DepartmentEditViewModel : BindableBase, INavigationAware
+    public class CategoryEditViewModel : BindableBase, INavigationAware
     {
         private readonly IRegionManager regionManager;
 
-        #region DepartmentProperty
-        private Department _Department;
-        public Department Department
+        #region CategoryProperty
+        private Category _Category;
+        public Category Category
         {
-            get { return _Department; }
-            set { SetProperty(ref _Department, value); }
+            get { return _Category; }
+            set { SetProperty(ref _Category, value); }
         }
         #endregion
 
@@ -39,7 +39,7 @@ namespace ThanksCardClient.ViewModels
         }
         #endregion
 
-        public DepartmentEditViewModel(IRegionManager regionManager)
+        public CategoryEditViewModel(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
         }
@@ -55,18 +55,12 @@ namespace ThanksCardClient.ViewModels
             //throw new NotImplementedException();
         }
 
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            // 画面遷移元から送られる SelectedCategory パラメーターを取得。
-            this.Department = navigationContext.Parameters.GetValue<Department>("SelectedDepartment");
-
-            this.UpdateDepartments();
-        }
-
-        private async void UpdateDepartments()
+        public async void OnNavigatedTo(NavigationContext navigationContext)
         {
             Department dept = new Department();
             this.Departments = await dept.GetDepartmentAsync();
+            // 画面遷移元から送られる SelectedUser パラメーターを取得。
+            this.Category = navigationContext.Parameters.GetValue<Category>("SelectedCategory");
         }
 
         #region SubmitCommand
@@ -76,9 +70,9 @@ namespace ThanksCardClient.ViewModels
 
         async void ExecuteSubmitCommand()
         {
-            Department updatedDepartment = await this.Department.PutDepartmentAsync(this.Department);
+            Category updatedCategory = await this.Category.PutCategoryAsync(this.Category);
 
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.DepartmentMst));
+            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.CategoryMst));
         }
         #endregion
 

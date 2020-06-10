@@ -2,86 +2,61 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             prism:ViewModelLocator.AutoWireViewModel="True" Height="340" Width="560" FontSize="16">
-    <Grid Margin="0,0,0,-19.8">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Margin="0,0,-50,-25.2" Grid.ColumnSpan="2" Background="#FFDFE4EB">
-            <TextBlock Text="感謝カード入力画面" RenderTransformOrigin="0.505,0.596" Foreground="#FF090909" Height="20" Background="#FFDDDDDD" Margin="0,0,50,0"/>
-            <TextBlock Text="　　"/>
-            <TextBlock Foreground="#FF080808" OpacityMask="#FFF0EEEE" FontSize="16" Margin="0,0,-0.8,0"><Run Text="　　　　送信先    :　"/><InlineUIContainer>
-                    <Button Content="部名" Command="{Binding SubmitCommand}" Height="25" Width="40" Background="#FFFCFCFE" Click="Button_Click_2"/>
-                </InlineUIContainer><InlineUIContainer>
-                    <ComboBox x:Name="FromDepartments" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="20" Height="25" BorderBrush="#FFF0F0F0">
-                        <ComboBox.Background>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                                <GradientStop Color="#FFFCFCFE" Offset="1"/>
-                            </LinearGradientBrush>
-                        </ComboBox.Background>
-                <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </ComboBox>
-                </InlineUIContainer><InlineUIContainer>
-                    <Button Content="課名" Command="{Binding SubmitCommand}" Width="40" Height="25" Background="#FFFCFCFE"/>
-                </InlineUIContainer><InlineUIContainer>
-                    <ComboBox x:Name="FromDepartments2" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="20" Height="25">
-                <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </ComboBox>
-                </InlineUIContainer><InlineUIContainer>
-                    <Button Content="氏名" Command="{Binding SubmitCommand}" Width="180" Height="25" Background="#FFFCFCFE" Click="Button_Click"/>
-                </InlineUIContainer><InlineUIContainer>
-                    <ComboBox ItemsSource="{Binding FromUsers}" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="25"/>
-                </InlineUIContainer></TextBlock>
-            <TextBlock Text="　　"/>
-            <TextBlock><Run Text="　　　　タイトル　:    "/><InlineUIContainer>
-                    <TextBox Text="{Binding ThanksCard.Title}" Width="400" Height="25"/>
-                </InlineUIContainer></TextBlock>
-            <TextBlock Text="　　"/>
-            <TextBlock><Run Text="        感謝の言葉　:    "/><InlineUIContainer>
-                    <TextBox Text="{Binding ThanksCard.Body}" Width="400" Height="25"/>
-                </InlineUIContainer></TextBlock>
-            <TextBlock Text="　　"/>
-            <TextBlock Height="27" Margin="0,0,-0.4,0"><Run Text="               作成日   : "/><Run Text=" "/><Run Text="  "/><InlineUIContainer>
-                    <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}" Height="27" Width="110"/>
-                </InlineUIContainer><Run Text=" "/><Run Text=" "/><Run Text=" "/><InlineUIContainer>
-                    <TextBlock Width="275"><Run Text="サンクステンプレート　:    "/><InlineUIContainer>
-                            <Button Content="ありがとうございます。" Command="{Binding SubmitCommand}" Background="White" Width="92" Height="25" BorderBrush="#FFDDDDDD" Click="Button_Click_1"/>
-                        </InlineUIContainer><InlineUIContainer>
-                            <ComboBox ItemsSource="{Binding FromUsers}" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="25"/>
-                        </InlineUIContainer></TextBlock>               
-                </InlineUIContainer><Run Text=" "/><Run Text="  "/><Run Text=" "/><Run Text=" "/><Run Text="     "/><Run Text=" "/><Run Text="  "/><Run Text=" "/><Run Text="         "/><Run Text="  "/><Run Text="      "/></TextBlock>
-            <TextBlock Text=""/>
-            <TextBlock><Run Text="　　　  カテゴリ1　:    "/><InlineUIContainer>
-                    <TextBox Text="{Binding ThanksCard.Title}" Width="125" Height="25"/>
-                </InlineUIContainer><InlineUIContainer>
-                    <ComboBox ItemsSource="{Binding FromUsers}" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="25" RenderTransformOrigin="0.28,-0.816"/>
-                </InlineUIContainer></TextBlock>
-            <TextBlock/>
-            <TextBlock><InlineUIContainer>
-                    <TextBlock Width="610"><Run Text="　　 　　　　　　　　　　　　　　　　　　  連続作成 　:    "/><InlineUIContainer>
-                            <Button Content="" Command="{Binding LogonCommand}" Height="20" Width="20" Background="White"/>
-                        </InlineUIContainer></TextBlock>
-                </InlineUIContainer></TextBlock>
-            <TextBlock Text=""/>
-            <TextBlock Height="42" TextAlignment="Center" Margin="285,0,-0.4,0"><InlineUIContainer>
-                    <Button Content="登録" Command="{Binding LogonCommand}" Height="30" Width="70"/>
-                </InlineUIContainer><InlineUIContainer>
-                    <TextBlock Text="" Width="20"/>
-                </InlineUIContainer><InlineUIContainer>
-                    <Button Content="クリア" Command="{Binding LogonCommand}" Height="30" Width="72"/>
-                </InlineUIContainer></TextBlock>
+             prism:ViewModelLocator.AutoWireViewModel="True" Height="244.9" Width="240">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="タイトル:"/>
+            <TextBox Text="{Binding ThanksCard.Title}"/>
+            <TextBlock Text="感謝の言葉:"/>
+            <TextBox x:Name="Textbox1" Text="{Binding ThanksCard.Body}"/>
+            <DockPanel>
+                <Button Content="🥝" Click="btnAddKiwii_Click"/>
+                <Button Content="🍌" Click="btnAddBanana_Click"/>
+                <Button Content="🍒" Click="btnAddCherry_Click"/>
+                <Button Content="ありがとう！" Click="btnAddArigatou_Click"/>
+                <Button Content="感謝です。" Click="btnAddKansha_Click"/>
+                <Button Content="Thank You!" Click="btnAddThanks_Click"/>
+            </DockPanel>
+            <StackPanel Orientation="Horizontal"/>
+            <DockPanel>
+                <!--TextBlock Text="部署:"/>
+                <ComboBox x:Name="To" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id"-->
+                    <!-- Deparment が選択されたら ToDepartmentsChangedCommand を発行する -->
+                    <!--i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ToDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=ToDepartments, Path=SelectedValue}"/>
+                        </i:EventTrigger>
+                    </>
+                </ComboBox-->
+                <!--TextBlock Text="部署:"/>
+                <ComboBox x:Name="ToSections" ItemsSource="{Binding Sections}" DisplayMemberPath="Name" SelectedValuePath="Id">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ToSectionsChangedCommand}" CommandParameter="{Binding ElementName=ToSections, Path=SelectedValue}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox -->
+                <TextBlock Text="To:"/>
+                <ComboBox ItemsSource="{Binding To}" DisplayMemberPath="Cd" SelectedValue="{Binding ThanksCard.ToId}" SelectedValuePath="Id"/>
+            </DockPanel>
+            <DockPanel>
+                <!--TextBlock Text="部署:"/>
+                <TextBox Text="{Binding FromUser.Department.Name}" IsReadOnly="True" Width="29"/-->
+                <TextBlock Text="From:"/>
+                <TextBox Text="{Binding From.Cd}" IsReadOnly="True"/>
+            </DockPanel>
+            <TextBlock Text="作成日:"/>
+            <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}" DisplayDate=""/>
+            <TextBlock Text="カテゴリ:"/>
+            <TextBox Text="{Binding ThanksCard.CategoryId}"/>
+            <!--ComboBox x:Name="ToCategorys" ItemsSource="{Binding Categorys}" DisplayMemberPath="Name" SelectedValuePath="Id">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="CategoryChanged">
+                        <i:InvokeCommandAction Command="{Binding ToCategorysChangedCommand}" CommandParameter="{Binding ElementName=ToCategorys, Path=SelectedValue}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </-->
+            <Button Content="作成" Command="{Binding SubmitCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

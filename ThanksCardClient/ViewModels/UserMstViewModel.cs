@@ -23,6 +23,23 @@ namespace ThanksCardClient.ViewModels
         }
         #endregion
 
+        #region User_Dep_KanrisProperty
+        private List<User_Dep_Kanri> _User_Dep_Kanris;
+        private List<User_Dep_Kanri> User_Dep_Kanris
+        {
+            get { return _User_Dep_Kanris; }
+            set { SetProperty(ref _User_Dep_Kanris, value); }
+        }
+        #endregion
+
+        #region DepartmentsProperty
+        private List<Department> _Departments;
+        public List<Department> Departments
+        {
+            get { return _Departments; }
+            set { SetProperty(ref _Departments, value); }
+        }
+        #endregion
 
         public UserMstViewModel(IRegionManager regionManager)
         {

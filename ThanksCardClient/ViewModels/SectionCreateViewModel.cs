@@ -8,16 +8,16 @@ using ThanksCardClient.Models;
 
 namespace ThanksCardClient.ViewModels
 {
-    public class UserEditViewModel : BindableBase, INavigationAware
+    public class SectionCreateViewModel : BindableBase
     {
         private readonly IRegionManager regionManager;
 
-        #region UserProperty
-        private User _User;
-        public User User
+        #region SectionProperty
+        private Section _Section;
+        public Section Section
         {
-            get { return _User; }
-            set { SetProperty(ref _User, value); }
+            get { return _Section; }
+            set { SetProperty(ref _Section, value); }
         }
         #endregion
 
@@ -30,20 +30,21 @@ namespace ThanksCardClient.ViewModels
         }
         #endregion
 
-        public UserEditViewModel(IRegionManager regionManager)
+        #region ErrorMessageProperty
+        private string _ErrorMessage;
+        public string ErrorMessage
         {
-            this.regionManager = regionManager;
+            get { return _ErrorMessage; }
+            set { SetProperty(ref _ErrorMessage, value); }
         }
+        #endregion
 
         public async void OnNavigatedTo(NavigationContext navigationContext)
         {
-            // 画面遷移元から送られる SelectedUser パラメーターを取得。
-            this.User = navigationContext.Parameters.GetValue<User>("SelectedUser");
-
             Department dept = new Department();
             this.Departments = await dept.GetDepartmentAsync();
-        }
 
+        }
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
             return true;
@@ -54,6 +55,13 @@ namespace ThanksCardClient.ViewModels
             //throw new NotImplementedException();
         }
 
+        public SectionCreateViewModel(IRegionManager regionManager)
+        {
+            this.regionManager = regionManager;
+
+            this.Section = new Section();
+        }
+
         #region SubmitCommand
         private DelegateCommand _SubmitCommand;
         public DelegateCommand SubmitCommand =>
@@ -61,10 +69,11 @@ namespace ThanksCardClient.ViewModels
 
         async void ExecuteSubmitCommand()
         {
-            User updatedUser = await User.PutUserAsync(this.User);
+            Section createdCategory = await Section.PostSectionAsync(this.Section);
 
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.UserMst));
+            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.SectionMst));
         }
         #endregion
+
     }
 }
