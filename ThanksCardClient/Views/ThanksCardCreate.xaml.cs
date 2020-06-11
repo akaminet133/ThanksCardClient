@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
+using ThanksCardClient.Models;
 
 namespace ThanksCardClient.Views
 {
@@ -11,5 +13,38 @@ namespace ThanksCardClient.Views
         {
             InitializeComponent();
         }
+
+        // [テキストを追記する]ボタンクリック時の処理
+        private void btnAddKiwii_Click(object sender, EventArgs e)
+        {
+            // ★★★現在のTextBoxの末尾にテキストを追記する★★★
+            ThanksCardBody.AppendText("🥝");
+        }
+        private void btnAddBanana_Click(object sender, EventArgs e)
+        {
+            // ★★★現在のTextBoxの末尾にテキストを追記する★★★
+            ThanksCardBody.AppendText("🍌");
+        }
+        private void btnAddCherry_Click(object sender, EventArgs e)
+        {
+            // ★★★現在のTextBoxの末尾にテキストを追記する★★★
+            ThanksCardBody.AppendText("🍒");
+        }
+        private void btnAddArigatou_Click(object sender, EventArgs e)
+        {
+            // ★★★現在のTextBoxの末尾にテキストを追記する★★★
+            ThanksCardBody.AppendText("ありがとう！");
+        }
+        private void btnAddKansha_Click(object sender, EventArgs e)
+        {
+            // ★★★現在のTextBoxの末尾にテキストを追記する★★★
+            ThanksCardBody.AppendText("感謝です");
+        }
+        private void btnAddThanks_Click(object sender, EventArgs e)
+        {
+            // ★★★現在のTextBoxの末尾にテキストを追記する★★★
+            ThanksCardBody.AppendText("Thank you!");
+        }
+
     }
 }

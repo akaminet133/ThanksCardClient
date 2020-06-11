@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="ThanksCardClient.Views.User_Kanri_Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True" Height="570" Width="195">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red"/>
+            <TextBlock Text="　　　　　　人事メニュー"/>
+            <Button Content="ユーザー管理" Command="{Binding ShowUserMstCommand}" Height="48" Margin="30,0,30.2,0" Background="#FFDDDDDD"/>
+            <TextBlock Text=""/>
+            <Button Content="カテゴリ管理" Command="{Binding ShowCategoryMstCommand}" Height="48" Margin="30,0,30.2,0" Background="#FFDDDDDD"/>
+            <TextBlock Text=""/>
+            <Button Content="部名管理" Command="{Binding ShowDepartmentMstCommand}" Height="48" Margin="30,0,30.2,0" Background="#FFDDDDDD"/>
+            <TextBlock Text=""/>
+            <Button Content="課名管理" Command="{Binding ShowSectionMstCommand}" Height="48" Margin="30,0,30.2,0" Background="#FFDDDDDD"/>
+            <TextBlock Text=""/>
+            <Button Content="集計機能" Command="{Binding SubmitCommand}" Margin="30,0,30.2,0" Height="49" IsEnabled="False"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

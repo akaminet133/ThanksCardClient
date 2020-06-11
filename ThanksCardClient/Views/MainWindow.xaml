@@ -3,17 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="550" Width="900">
+        Title="友寄ホテル感謝カードシステム" Height="768" Width="1024"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="hhh.jpg"/>
         </Grid.Background>
-        <ContentControl prism:RegionManager.RegionName="LogonRegion">
-        </ContentControl>
-        <ContentControl prism:RegionManager.RegionName="HeaderRegion" Margin="0,0,-0.4,545.4" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" Margin="160,45,-0.4,90.4" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <ContentControl prism:RegionManager.RegionName="MenuRegion" Margin="0,45,0,98.4" UseLayoutRounding="False" HorizontalAlignment="Left" Width="120" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <ContentControl prism:RegionManager.RegionName="FooterRegion" Margin="0,500,-0.4,0.4" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
-        </ContentControl>
+        <ContentControl prism:RegionManager.RegionName="LogonRegion"/>
+        <ContentControl prism:RegionManager.RegionName="HeaderRegion" Margin="0,0,-0.4,715.4" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <ContentControl prism:RegionManager.RegionName="ContentRegion" Margin="195,45,-0.4,90.4" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <ContentControl prism:RegionManager.RegionName="MenuRegion" Margin="0,45,0,98.4" UseLayoutRounding="False" HorizontalAlignment="Left" Width="180" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <ContentControl prism:RegionManager.RegionName="FooterRegion" Margin="165,650,62.6,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Center" HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="790" />
     </Grid>
 </Window>

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using ThanksCardClient.Models;
 using ThanksCardClient.Services;
+using System.Runtime.InteropServices;
+using ThanksCardClient.Views;
 
 namespace ThanksCardClient.ViewModels
 {
@@ -26,58 +28,27 @@ namespace ThanksCardClient.ViewModels
             this.AuthorizedUser = SessionService.Instance.AuthorizedUser;
         }
 
-        #region ShowThanksCardCreateCommand
-        private DelegateCommand _ShowThanksCardCreateCommand;
-        public DelegateCommand ShowThanksCardCreateCommand =>
-            _ShowThanksCardCreateCommand ?? (_ShowThanksCardCreateCommand = new DelegateCommand(ExecuteShowThanksCardCreateCommand));
+        #region GotopCommand
+        private DelegateCommand _gotopCommand;
+        public DelegateCommand GotopCommand =>
+            _gotopCommand ?? (_gotopCommand = new DelegateCommand(ExecuteGotopCommand));
 
-        void ExecuteShowThanksCardCreateCommand()
+        void ExecuteGotopCommand()
         {
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.ThanksCardCreate));
-        }
-        #endregion
-
-        #region ShowThanksCardListCommand
-        private DelegateCommand _ShowThanksCardListCommand;
-        public DelegateCommand ShowThanksCardListCommand =>
-            _ShowThanksCardListCommand ?? (_ShowThanksCardListCommand = new DelegateCommand(ExecuteShowThanksCardListCommand));
-
-        void ExecuteShowThanksCardListCommand()
-        {
+            // HeaderRegion, FooterRegion を破棄して、ContentRegion をログオン後の画面に遷移させる。
             this.regionManager.RequestNavigate("ContentRegion", nameof(Views.ThanksCardList));
+            this.regionManager.RequestNavigate("MenuRegion", nameof(Views.Menu));
         }
         #endregion
 
-        #region ShowUserMstCommand
-        private DelegateCommand _ShowUserMstCommand;
-        public DelegateCommand ShowUserMstCommand =>
-            _ShowUserMstCommand ?? (_ShowUserMstCommand = new DelegateCommand(ExecuteShowUserMstCommand));
+        #region OpenmanualCommand
+        private DelegateCommand _openmanualCommand;
+        public DelegateCommand OpenmanualCommand =>
+            _openmanualCommand ?? (_openmanualCommand = new DelegateCommand(ExecuteOpenManualCommand));
 
-        void ExecuteShowUserMstCommand()
+        void ExecuteOpenManualCommand()
         {
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.UserMst));
-        }
-        #endregion
-
-        #region ShowDepartmentMstCommand
-        private DelegateCommand _ShowDepartmentMstCommand;
-        public DelegateCommand ShowDepartmentMstCommand =>
-            _ShowDepartmentMstCommand ?? (_ShowDepartmentMstCommand = new DelegateCommand(ExecuteShowDepartmentMstCommand));
-
-        void ExecuteShowDepartmentMstCommand()
-        {
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.DepartmentMst));
-        }
-        #endregion
-
-        #region ShowTagMstCommand
-        private DelegateCommand _ShowTagMstCommand;
-        public DelegateCommand ShowTagMstCommand =>
-            _ShowTagMstCommand ?? (_ShowTagMstCommand = new DelegateCommand(ExecuteShowTagMstCommand));
-
-        void ExecuteShowTagMstCommand()
-        {
-            this.regionManager.RequestNavigate("ContentRegion", nameof(Views.TagMst));
+            var win = new PdfView();
         }
         #endregion
 

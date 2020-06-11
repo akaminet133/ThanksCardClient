@@ -29,9 +29,15 @@ namespace ThanksCardClient
             containerRegistry.RegisterForNavigation<DepartmentMst>();
             containerRegistry.RegisterForNavigation<DepartmentCreate>();
             containerRegistry.RegisterForNavigation<DepartmentEdit>();
-            containerRegistry.RegisterForNavigation<TagMst>();
-            containerRegistry.RegisterForNavigation<TagCreate>();
-            containerRegistry.RegisterForNavigation<TagEdit>();
+            containerRegistry.RegisterForNavigation<SectionMst>();
+            containerRegistry.RegisterForNavigation<SectionCreate>();
+            containerRegistry.RegisterForNavigation<SectionEdit>();
+            containerRegistry.RegisterForNavigation<CategoryMst>();
+            containerRegistry.RegisterForNavigation<CategoryCreate>();
+            containerRegistry.RegisterForNavigation<CategoryEdit>();
+            containerRegistry.RegisterForNavigation<Menu>();
+            containerRegistry.RegisterForNavigation<User_Kanri_Menu>();
+
         }
     }
 }

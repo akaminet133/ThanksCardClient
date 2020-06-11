@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using Newtonsoft.Json;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,12 +83,22 @@ namespace ThanksCardClient.Models
         }
         #endregion
 
-        #region ThanksCardTagsProperty
-        private List<ThanksCardTag> _ThanksCardTags;
-        public List<ThanksCardTag> ThanksCardTags
+        #region CategoryIdProperty
+        private long _CategoryId;
+        public long CategoryId
         {
-            get { return _ThanksCardTags; }
-            set { SetProperty(ref _ThanksCardTags, value); }
+            get { return _CategoryId; }
+            set { SetProperty(ref _CategoryId, value); }
+        }
+        #endregion
+
+        #region CategorysProperty
+        private Category _Categorys;
+        [JsonIgnore]
+        public Category Categorys
+        {
+            get { return _Categorys; }
+            set { SetProperty(ref _Categorys, value); }
         }
         #endregion
 

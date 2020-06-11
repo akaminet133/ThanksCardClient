@@ -1,0 +1,36 @@
+﻿<Window x:Class="ThanksCardClient.Views.ThanksCardViewA"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThanksCardClient.Views"
+        mc:Ignorable="d"
+        Title="ThanksCardViewA" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0,0,-0.4,-0.4" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="530" Height="330" VerticalAlignment="Top">
+            <StackPanel.Background>
+                <ImageBrush/>
+            </StackPanel.Background>
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" Background="#FFD1D3EE"/>
+            <TextBlock Text="送信者　　　　　　　部　　　　課　　　　　　　　　　　　　　　　送信日YYY/MM/DD" Margin="0,0,-0.2,0"/>
+            <TextBlock Text="　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　カテゴリ１" Margin="0,0,-0.2,0"/>
+            <TextBox Text="&#xD;&#xA;　TO:" Margin="25,0,24.6,0" Height="119"/>
+            <TextBlock Text=""/>
+            <TextBox Text="{Binding User.Password}" Margin="25,0,24.6,0" Height="64"/>
+            <Button Content="　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　返信" Command="{Binding LogonCommand}" Margin="25,0,24.6,0" Background="White"/>
+            <TextBlock Text=""/>
+            <TextBlock><InlineUIContainer>
+                    <TextBox Text="感謝カードで送信する" Height="16" Width="115"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="" Width="305"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBox Height="16" Width="110" Text="受信リスト一覧へ戻る"/>
+                </InlineUIContainer></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

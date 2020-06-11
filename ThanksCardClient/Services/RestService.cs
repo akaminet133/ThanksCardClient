@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Comment_RirekiClient.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -49,7 +50,7 @@ namespace ThanksCardClient.Services
             return responseUser;
         }
 
-        public async Task<List<User>> GetDepartmentUsersAsync(long? DepartmentId)
+        /*public async Task<List<User>> GetDepartmentUsersAsync(long? DepartmentId)
         {
             List<User> responseUsers = null;
             try
@@ -66,7 +67,7 @@ namespace ThanksCardClient.Services
                 System.Diagnostics.Debug.WriteLine("Exception in RestService.GetUsersAsync: " + e);
             }
             return responseUsers;
-        }
+        }*/
 
         public async Task<List<User>> GetUsersAsync()
         {
@@ -293,94 +294,227 @@ namespace ThanksCardClient.Services
             return responseThanksCard;
         }
 
-        public async Task<List<Tag>> GetTagsAsync()
+        public async Task<List<Category>> GetCategorysAsync()
         {
-            List<Tag> responseTags = null;
+            List<Category> responseCategorys = null;
             try
             {
-                var response = await Client.GetAsync(this.BaseUrl + "/api/Tags");
+                var response = await Client.GetAsync(this.BaseUrl + "/api/Categorys");
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
-                    responseTags = JsonConvert.DeserializeObject<List<Tag>>(responseContent);
+                    responseCategorys = JsonConvert.DeserializeObject<List<Category>>(responseContent);
                 }
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetTagsAsync: " + e);
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetCategorysAsync: " + e);
             }
-            return responseTags;
+            return responseCategorys;
         }
 
-        public async Task<Tag> PostTagAsync(Tag tag)
+        public async Task<Category> PostCategoryAsync(Category Category)
         {
-            var jObject = JsonConvert.SerializeObject(tag);
+            var jObject = JsonConvert.SerializeObject(Category);
 
             //Make Json object into content type
             var content = new StringContent(jObject);
             //Adding header of the contenttype
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            Tag responseTag = null;
+            Category responseCategory = null;
             try
             {
-                var response = await Client.PostAsync(this.BaseUrl + "/api/Tags", content);
+                var response = await Client.PostAsync(this.BaseUrl + "/api/Categorys", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
-                    responseTag = JsonConvert.DeserializeObject<Tag>(responseContent);
+                    responseCategory = JsonConvert.DeserializeObject<Category>(responseContent);
                 }
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine("Exception in RestService.PostTagAsync: " + e);
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PostCategoryAsync: " + e);
             }
-            return responseTag;
+            return responseCategory;
         }
 
-        public async Task<Tag> PutTagAsync(Tag tag)
+        public async Task<Category> PutCategoryAsync(Category Category)
         {
-            var jObject = JsonConvert.SerializeObject(tag);
+            var jObject = JsonConvert.SerializeObject(Category);
 
             //Make Json object into content type
             var content = new StringContent(jObject);
             //Adding header of the contenttype
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            Tag responseTag = null;
+            Category responseCategory = null;
             try
             {
-                var response = await Client.PutAsync(this.BaseUrl + "/api/Tags/" + tag.Id, content);
+                var response = await Client.PutAsync(this.BaseUrl + "/api/Categorys/" + Category.Id, content);
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
-                    responseTag = JsonConvert.DeserializeObject<Tag>(responseContent);
+                    responseCategory = JsonConvert.DeserializeObject<Category>(responseContent);
                 }
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine("Exception in RestService.PutTagAsync: " + e);
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PutCategoryAsync: " + e);
             }
-            return responseTag;
+            return responseCategory;
         }
 
-        public async Task<Tag> DeleteTagAsync(long Id)
+        public async Task<Category> DeleteCategoryAsync(long Id)
         {
-            Tag responseTag = null;
+            Category responseCategory = null;
             try
             {
-                var response = await Client.DeleteAsync(this.BaseUrl + "/api/Tags/" + Id);
+                var response = await Client.DeleteAsync(this.BaseUrl + "/api/Categorys/" + Id);
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
-                    responseTag = JsonConvert.DeserializeObject<Tag>(responseContent);
+                    responseCategory = JsonConvert.DeserializeObject<Category>(responseContent);
                 }
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine("Exception in RestService.DeleteTagAsync: " + e);
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.DeleteCategoryAsync: " + e);
             }
-            return responseTag;
+            return responseCategory;
         }
+
+        public async Task<List<User_Dep_Kanri>> GetUser_Dep_KanrisAsync()
+        {
+            List<User_Dep_Kanri> responseUser_Dep_Kanris = null;
+            try
+            {
+                var response = await Client.GetAsync(this.BaseUrl + "/api/User_dep_Kanri");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseUser_Dep_Kanris = JsonConvert.DeserializeObject<List<User_Dep_Kanri>>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetThanksCardsAsync: " + e);
+            }
+            return responseUser_Dep_Kanris;
+        }
+
+        public Task<User_Dep_Kanri> PostUser_Dep_KanriAsync(User_Dep_Kanri user_Dep_Kanri)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<User_Dep_Kanri> PutUser_Dep_KanriAsync(User_Dep_Kanri user_Dep_Kanri)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<User_Dep_Kanri> DeleteUser_Dep_KanriAsync(long Id)
+        {
+            throw new NotImplementedException();
+        }
+        public async Task<List<Section>> GetSectionsAsync()
+        {
+            List<Section> responseSections = null;
+            try
+            {
+                var response = await Client.GetAsync(this.BaseUrl + "/api/Sections");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseSections = JsonConvert.DeserializeObject<List<Section>>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetSectionsAsync: " + e);
+            }
+            return responseSections;
+        }
+
+        public async Task<Section> PostSectionAsync(Section section)
+        {
+            var jObject = JsonConvert.SerializeObject(section);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            Section responseSection = null;
+            try
+            {
+                var response = await Client.PostAsync(this.BaseUrl + "/api/Sections", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseSection = JsonConvert.DeserializeObject<Section>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PostSectionAsync: " + e);
+            }
+            return responseSection;
+        }
+
+        public async Task<Section> PutSectionAsync(Section section)
+        {
+            var jObject = JsonConvert.SerializeObject(section);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            Section responseSection = null;
+            try
+            {
+                var response = await Client.PutAsync(this.BaseUrl + "/api/Sections/" + section.Id, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseSection = JsonConvert.DeserializeObject<Section>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PutSectionAsync: " + e);
+            }
+            return responseSection;
+        }
+
+        public async Task<Section> DeleteSectionAsync(long Id)
+        {
+            Section responseSection = null;
+            try
+            {
+                var response = await Client.DeleteAsync(this.BaseUrl + "/api/Sections/" + Id);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseSection = JsonConvert.DeserializeObject<Section>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.DeleteSectionAsync: " + e);
+            }
+            return responseSection;
+        }
+
+        /*public Task<List<Comment_Rireki>> GetComment_RirekisAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Comment_Rireki> PostComment_RirekiAsync(Comment_Rireki comment_Rireki)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 }

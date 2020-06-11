@@ -8,7 +8,7 @@ using ThanksCardClient.Models;
 
 namespace ThanksCardClient.ViewModels
 {
-    public class DepartmentCreateViewModel : BindableBase, INavigationAware
+    public class DepartmentCreateViewModel : BindableBase
     {
         private readonly IRegionManager regionManager;
 
@@ -18,15 +18,6 @@ namespace ThanksCardClient.ViewModels
         {
             get { return _Department; }
             set { SetProperty(ref _Department, value); }
-        }
-        #endregion
-
-        #region DepartmentsProperty
-        private List<Department> _Departments;
-        public List<Department> Departments
-        {
-            get { return _Departments; }
-            set { SetProperty(ref _Departments, value); }
         }
         #endregion
 
@@ -42,29 +33,8 @@ namespace ThanksCardClient.ViewModels
         public DepartmentCreateViewModel(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
-        }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            this.UpdateDepartments();
-        }
-
-        private async void UpdateDepartments()
-        {
-            Department dept = new Department();
-            this.Departments = await dept.GetDepartmentsAsync();
 
             this.Department = new Department();
-        }
-
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-            //throw new NotImplementedException();
         }
 
         #region SubmitCommand
@@ -74,7 +44,7 @@ namespace ThanksCardClient.ViewModels
 
         async void ExecuteSubmitCommand()
         {
-            Department createdDepartment = await Department.PostDepartmentAsync(this.Department);
+            Department createdCategory = await Department.PostDepartmentAsync(this.Department);
 
             this.regionManager.RequestNavigate("ContentRegion", nameof(Views.DepartmentMst));
         }

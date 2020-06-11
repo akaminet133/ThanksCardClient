@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="ThanksCardClient.Views.Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True" Height="520" Width="175">
+    <Grid Margin="0,0,0,0.4" Width="180">
+        <StackPanel>
+            <StackPanel.Background>
+                <SolidColorBrush Color="#FFDFE4EB" Opacity="0.4"/>
+            </StackPanel.Background>
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" Background="#FFDFE4EB" Height="5"/>
+            <TextBlock Text="　　　　　　検索メニュー">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBox Text="{Binding Department.Code}" Margin="40,0" Background="#FFFAF9F9"/>
+            <TextBlock Text="　　　　　絞り込みメニュー">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text="　　　　　　ソートメニュー">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="85,0,-0.4,0"><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" IsEnabled="False" Width="55" Height="16"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" IsEnabled="False" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="16" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text="　" Height="2">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <Button Content="新規作成" Command="{Binding ShowThanksCardCreateCommand}" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
+            <TextBlock Text="　" Height="6">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <Button Content="受信リスト" Command="{Binding }" IsEnabled="False" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
+            <TextBlock Text="　" Height="5">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <Button Content="送信リスト" Command="{Binding }" IsEnabled="False" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
+            <TextBlock Text="　" Height="4">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <Button Content="人事メニュー" Command="{Binding ShowUser_Kanri_MenuCommand}" IsEnabled="{Binding AuthorizedUser.IsUsers}" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
+            <TextBlock Text="　" Height="3">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <Button Content="（人事）PDF出力" Command="{Binding ShowCategoryMstCommand}" IsEnabled="False" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
+            <TextBlock Text="　" Height="5">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <Button Content="（経営）連携図" Command="{Binding ShowManagementMstCommand}" IsEnabled="{Binding AuthorizedUser.IsManagement}" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
+        </StackPanel>
+        <TextBox Text="日付&#xA;From部&#xA;From課&#xA;送信者&#xA;To部&#xA;To課&#xA;受信者&#xA;カテゴリ" Margin="10,55,105,336.6" Background="Snow" Height="128"/>
+        <TextBox Text="日付&#xA;Fav&#xA;部署ID" Margin="10,198,105,273.6" Background="#FFFDFDFD" Height="48"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,172 @@
+﻿<UserControl x:Class="ThanksCardClient.Views.Soukanzu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             prism:ViewModelLocator.AutoWireViewModel="True" Height="340" Width="560" FontSize="16">
+    <Grid Margin="0,0,0,-19.8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0,0,-70,-40.2" Grid.ColumnSpan="3" Background="#FFDFE4EB">
+            <TextBlock Text="現在までの部署間連携" RenderTransformOrigin="0.505,0.596" Foreground="#FF090909" Height="20" Background="#FFDDDDDD" Margin="0,0,50,0"/>
+            <TextBlock Text="　　"/>
+
+            <TextBlock Foreground="#FF080808" OpacityMask="#FFF0EEEE" FontSize="16" Margin="0,0,-0.8,0"><Run Text="　"/><Run Text="　"/><InlineUIContainer>
+                    <Button Content="部署間全体" Command="{Binding SubmitCommand}" Height="25" Width="85" Background="#FFFCFCFE"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox x:Name="FromDepartments" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="20" Height="25" BorderBrush="#FFF0F0F0" RenderTransformOrigin="1.15,0.536">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFFCFCFE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+                <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer><Run Text="オプション "/><InlineUIContainer>
+                    <Button Content="部署選択&#xA;" Command="{Binding SubmitCommand}" Width="85" Height="25" Background="#FFFCFCFE"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox x:Name="FromDepartments2" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="20" Height="25">
+                <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="" Height="22" Width="20" RenderTransformOrigin="0.5,0.5"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Command="{Binding SubmitCommand}" Width="85" Height="25" Background="#FFFCFCFE" Content="課名選択"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="25"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="" Height="22" Width="20" RenderTransformOrigin="0.5,0.5"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Command="{Binding SubmitCommand}" Background="#FFFCFCFE" Height="25" Width="85" Content="個人名選択"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox x:Name="FromDepartments_Copy" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" BorderBrush="#FFF0F0F0" RenderTransformOrigin="1.15,0.536" Height="25" Width="20">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFFCFCFE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+            <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Foreground="#FF080808" OpacityMask="#FFF0EEEE" FontSize="16" Margin="0,0,-0.8,0"><Run Text="　　"/><InlineUIContainer>
+                    <Button Content="カテゴリ" Command="{Binding SubmitCommand}" Height="25" Width="85" Background="#FFFCFCFE"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="20" Height="25" BorderBrush="#FFF0F0F0" RenderTransformOrigin="0.5,0.5">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFFCFCFE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+                <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer><Run Text="　　"/></TextBlock>
+            <TextBlock Margin="0,0,-0.6,0" Height="40"><Run Text="　　"/><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Width="520" Height="45"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="0,0,-0.6,0" Height="40"><Run Text="　　"/><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Width="520" Height="45"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text="　　"/>
+            <TextBlock Margin="0,0,-0.6,0"><Run Text="　　"/><InlineUIContainer>
+                    <Button Content="部署間全体" Command="{Binding SubmitCommand}" Height="25" Width="85" Background="#FFFCFCFE" />  
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox x:Name="FromDepartments_Copy1" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" BorderBrush="#FFF0F0F0" RenderTransformOrigin="1.15,0.536" Height="25" Width="20">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFFCFCFE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+            <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="オプション" Width="60"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Content="部署選択&#xA;" Command="{Binding SubmitCommand}" Background="#FFFCFCFE" Height="25" Width="85"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox x:Name="FromDepartments2_Copy" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Height="25" Width="20">
+            <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="" RenderTransformOrigin="6.5,4.054" Height="23" Width="20"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Command="{Binding SubmitCommand}" Background="#FFFCFCFE" Content="課名選択" Height="25" Width="85"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Height="25" Width="20"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="" RenderTransformOrigin="-0.06,0.661" Height="23" Width="20"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Command="{Binding SubmitCommand}" Background="#FFFCFCFE"  Content="個人名選択" Height="25" Width="85"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Height="25" Width="20"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock><Run Text="　　"/><InlineUIContainer>
+                    <Button Content="カテゴリ" Command="{Binding SubmitCommand}" Background="#FFFCFCFE"  Height="25" Width="85"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" BorderBrush="#FFF0F0F0" RenderTransformOrigin="0.5,0.5" Height="25" VerticalAlignment="Bottom" Width="20">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFFCFCFE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+            <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="0,0,-0.6,0" Height="40"><Run Text="　　"/><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Width="520" Height="45"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Margin="0,0,-0.6,0" Height="40"><Run Text="　　"/><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Width="520" Height="45"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text=""/>
+            <TextBlock Height="42" TextAlignment="Center" Margin="0,0,50.4,0"><InlineUIContainer>
+                    <Button Content="メニューへ戻る" Command="{Binding LogonCommand}" Height="30" Width="100"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="" Width="320" RenderTransformOrigin="0.5,0.5"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Content="クリア相関図表示" Command="{Binding LogonCommand}" Height="30" Width="100"/>
+               </InlineUIContainer></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

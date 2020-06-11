@@ -10,17 +10,10 @@
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                     <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" />
                     <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" />
-                    <DataGridTextColumn Header="From" Binding="{Binding From.Name}" />
-                    <DataGridTextColumn Header="To" Binding="{Binding To.Name}" />
+                    <DataGridTextColumn Header="From" Binding="{Binding From.Cd}" />
+                    <DataGridTextColumn Header="To" Binding="{Binding To.Cd}" />
                     <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" />
-                    <DataGridTemplateColumn IsReadOnly="True" Header="タグ">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <ListBox ItemsSource="{Binding ThanksCardTags}" DisplayMemberPath="Tag.Name"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-
+                    <DataGridTextColumn Header="カテゴリ" Binding="{Binding Categorys.Name}" />
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

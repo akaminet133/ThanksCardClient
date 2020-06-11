@@ -44,7 +44,7 @@ namespace ThanksCardClient.ViewModels
         private async void UpdateDepartments()
         {
             Department dept = new Department();
-            this.Departments = await dept.GetDepartmentsAsync();
+            this.Departments = await dept.GetDepartmentAsync();
         }
 
         #region DepartmentCreateCommand

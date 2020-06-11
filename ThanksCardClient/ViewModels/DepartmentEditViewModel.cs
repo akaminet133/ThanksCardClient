@@ -57,7 +57,7 @@ namespace ThanksCardClient.ViewModels
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            // 画面遷移元から送られる SelectedTag パラメーターを取得。
+            // 画面遷移元から送られる SelectedCategory パラメーターを取得。
             this.Department = navigationContext.Parameters.GetValue<Department>("SelectedDepartment");
 
             this.UpdateDepartments();
@@ -66,7 +66,7 @@ namespace ThanksCardClient.ViewModels
         private async void UpdateDepartments()
         {
             Department dept = new Department();
-            this.Departments = await dept.GetDepartmentsAsync();
+            this.Departments = await dept.GetDepartmentAsync();
         }
 
         #region SubmitCommand

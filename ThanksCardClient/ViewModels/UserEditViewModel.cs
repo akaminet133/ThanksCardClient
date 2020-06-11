@@ -41,7 +41,7 @@ namespace ThanksCardClient.ViewModels
             this.User = navigationContext.Parameters.GetValue<User>("SelectedUser");
 
             Department dept = new Department();
-            this.Departments = await dept.GetDepartmentsAsync();
+            this.Departments = await dept.GetDepartmentAsync();
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)

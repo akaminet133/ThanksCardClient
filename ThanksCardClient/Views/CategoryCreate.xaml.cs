@@ -3,11 +3,11 @@
 namespace ThanksCardClient.Views
 {
     /// <summary>
-    /// Interaction logic for TagCreate
+    /// Interaction logic for CategoryCreate
     /// </summary>
-    public partial class TagCreate : UserControl
+    public partial class CategoryCreate : UserControl
     {
-        public TagCreate()
+        public CategoryCreate()
         {
             InitializeComponent();
         }

@@ -24,23 +24,33 @@ namespace ThanksCardClient.ViewModels
         #endregion
 
         #region FromUsersProperty
-        private List<User> _FromUsers;
-        public List<User> FromUsers
+        private User _From;
+        public User From
         {
-            get { return _FromUsers; }
-            set { SetProperty(ref _FromUsers, value); }
+            get { return _From; }
+            set { SetProperty(ref _From, value); }
         }
         #endregion
 
         #region ToUsersProperty
-        private List<User> _ToUsers;
-        public List<User> ToUsers
+        private List<User> _To;
+        public List<User> To
         {
-            get { return _ToUsers; }
-            set { SetProperty(ref _ToUsers, value); }
+            get { return _To; }
+            set { SetProperty(ref _To, value); }
         }
         #endregion
 
+        /*
+        #region SectionsProperty
+        private List<Section> _Sections;
+        public List<Section> Sections
+        {
+            get { return _Sections; }
+            set { SetProperty(ref _Sections, value); }
+        }
+        #endregion
+        */
         #region DepartmentsProperty
         private List<Department> _Departments;
         public List<Department> Departments
@@ -50,12 +60,12 @@ namespace ThanksCardClient.ViewModels
         }
         #endregion
 
-        #region TagsProperty
-        private List<Tag> _Tags;
-        public List<Tag> Tags
+        #region CategorysProperty
+        private List<Category> _Categorys;
+        public List<Category> Categorys
         {
-            get { return _Tags; }
-            set { SetProperty(ref _Tags, value); }
+            get { return _Categorys; }
+            set { SetProperty(ref _Categorys, value); }
         }
         #endregion
 
@@ -72,15 +82,21 @@ namespace ThanksCardClient.ViewModels
             
             if (SessionService.Instance.AuthorizedUser != null)
             {
-                this.FromUsers = await SessionService.Instance.AuthorizedUser.GetUsersAsync();
-                this.ToUsers = this.FromUsers;
+                this.From = SessionService.Instance.AuthorizedUser;
+                this.ThanksCard.FromId = SessionService.Instance.AuthorizedUser.Id;
             }
 
-            var tag = new Tag();
-            this.Tags = await tag.GetTagsAsync();
+            var User = new User();
+            this.To = await User.GetUsersAsync();
 
-            var dept = new Department();
-            this.Departments = await dept.GetDepartmentsAsync();
+            var Category = new Category();
+            this.Categorys = await Category.GetCategorysAsync();
+
+            //var sect = new Section();
+            //this.Sections = await sect.GetSectionsAsync();
+
+            //var dept = new Department();
+            //this.Departments = await dept.GetDepartmentAsync();
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -92,7 +108,7 @@ namespace ThanksCardClient.ViewModels
         {
             //throw new NotImplementedException();
         }
-
+        /*
         #region FromDepartmentsChangedCommand
         private DelegateCommand<long?> _FromDepartmentsChangedCommand;
         public DelegateCommand<long?> FromDepartmentsChangedCommand =>
@@ -102,18 +118,29 @@ namespace ThanksCardClient.ViewModels
         {
             this.FromUsers = await SessionService.Instance.AuthorizedUser.GetDepartmentUsersAsync(FromDepartmentId);
         }
-        #endregion
+        #endregion */
 
-        #region ToDepartmentsChangedCommand
-        private DelegateCommand<long?> _ToDepartmentsChangedCommand;
-        public DelegateCommand<long?> ToDepartmentsChangedCommand =>
-            _ToDepartmentsChangedCommand ?? (_ToDepartmentsChangedCommand = new DelegateCommand<long?>(ExecuteToDepartmentsChangedCommand));
+        /* #region ToDepartmentsChangedCommand
+         private DelegateCommand<long?> _ToDepartmentsChangedCommand;
+         public DelegateCommand<long?> ToDepartmentsChangedCommand =>
+             _ToDepartmentsChangedCommand ?? (_ToDepartmentsChangedCommand = new DelegateCommand<long?>(ExecuteToDepartmentsChangedCommand));
 
-        async void ExecuteToDepartmentsChangedCommand(long? ToDepartmentId)
+         async void ExecuteToDepartmentsChangedCommand(long? ToDepartmentId)
+         {
+             this.ToUsers = await this.ToUsers.GetUsersAsync(ToDepartmentId);
+         }
+         #endregion */
+        
+        /*#region ToCategorysChangedCommand
+        private DelegateCommand<long?> _ToCategorysChangedCommand;
+        public DelegateCommand<long?> ToCategorysChangedCommand =>
+        _ToCategorysChangedCommand ?? (_ToCategorysChangedCommand = new DelegateCommand<long?>(ExecuteToCategorysChangedCommand));
+
+         async void ExecuteToCategorysChangedCommand(long? ToCategoryId)
         {
-            this.ToUsers = await SessionService.Instance.AuthorizedUser.GetDepartmentUsersAsync(ToDepartmentId);
-        }
-        #endregion
+            this.Categorys = await this.Categorys.GetCategorysAsync(ToCategoryId);
+         }
+         #endregion*/
 
         #region SubmitCommand
         private DelegateCommand _SubmitCommand;
@@ -122,17 +149,7 @@ namespace ThanksCardClient.ViewModels
 
         async void ExecuteSubmitCommand()
         {
-            System.Diagnostics.Debug.WriteLine(this.Tags);
-
-            //選択された Tag を取得し、ThanksCard.ThanksCardTags にセットする。
-            List<ThanksCardTag> ThanksCardTags = new List<ThanksCardTag>();
-            foreach (var tag in this.Tags.Where(t => t.Selected))
-            {
-                ThanksCardTag thanksCardTag = new ThanksCardTag();
-                thanksCardTag.TagId = tag.Id;
-                ThanksCardTags.Add(thanksCardTag);
-            }
-            this.ThanksCard.ThanksCardTags = ThanksCardTags;
+            System.Diagnostics.Debug.WriteLine(this.Categorys);
 
             ThanksCard createdThanksCard = await ThanksCard.PostThanksCardAsync(this.ThanksCard);
 
