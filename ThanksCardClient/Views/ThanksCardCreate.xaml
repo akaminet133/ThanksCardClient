@@ -61,9 +61,9 @@
                 </InlineUIContainer><Run Text=" "/><Run Text=" "/><Run Text=" "/><InlineUIContainer>
                     <TextBlock Width="325"><Run Text="サンクステンプレート　:    "/><InlineUIContainer>
                                     <StackPanel><DockPanel>
-                <Button Content="🥝" Click="btnAddKiwii_Click"/>
-                <Button Content="🍌" Click="btnAddBanana_Click"/>
-                <Button Content="🍒" Click="btnAddCherry_Click"/>
+                <Button Content="😊" Click="btnAddSmile_Click"/>
+                <Button Content="m(_ _)m" Click="btnAddOjigi_Click"/>
+                <Button Content="👍" Click="btnAddGood_Click"/>
                                         <TextBlock Text=""/>
                                         </DockPanel><DockPanel>
                 <Button Content="ありがとう！" Click="btnAddArigatou_Click"/>
@@ -79,7 +79,7 @@
             <TextBlock/>
             <TextBlock><InlineUIContainer>
                     <TextBlock Width="610"><Run Text="　　 　　　　　　　　　　　　　　　　　　  連続作成 　:    "/><InlineUIContainer>
-                            <Button Content="" Command="{Binding LogonCommand}" Height="20" Width="20" Background="White" IsEnabled="False"/>
+                            <Button Content="" Command="{Binding }" Height="20" Width="20" Background="White" IsEnabled="False"/>
                         </InlineUIContainer></TextBlock>
                 </InlineUIContainer></TextBlock>
             <TextBlock Text=""/>

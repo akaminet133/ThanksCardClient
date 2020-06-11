@@ -14,7 +14,7 @@
                     <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
                 </TextBlock.Background>
             </TextBlock>
-            <TextBox Text="{Binding Department.Code}" Margin="40,0" Background="#FFFAF9F9"/>
+            <TextBox Text="{Binding Department.Code}" IsEnabled="False" Margin="40,0" Background="#FFFAF9F9"/>
             <TextBlock Text="　　　　　絞り込みメニュー">
                 <TextBlock.Background>
                     <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
@@ -109,13 +109,13 @@
                     <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
                 </TextBlock.Background>
             </TextBlock>
-            <Button Content="（人事）PDF出力" Command="{Binding ShowCategoryMstCommand}" IsEnabled="False" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
+            <Button Content="PDF出力" Command="{Binding ShowCategoryMstCommand}" IsEnabled="False" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
             <TextBlock Text="　" Height="5">
                 <TextBlock.Background>
                     <SolidColorBrush Color="#FFDFE4EB" Opacity="0"/>
                 </TextBlock.Background>
             </TextBlock>
-            <Button Content="（経営）連携図" Command="{Binding ShowManagementMstCommand}" IsEnabled="{Binding AuthorizedUser.IsManagement}" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
+            <Button Content="連携図表示" Command="{Binding ShowManagementMstCommand}" IsEnabled="{Binding AuthorizedUser.IsManagement}" Height="40" Margin="40,0" Background="#FFDDDDDD"/>
         </StackPanel>
         <TextBox Text="日付&#xA;From部&#xA;From課&#xA;送信者&#xA;To部&#xA;To課&#xA;受信者&#xA;カテゴリ" Margin="10,55,105,336.6" Background="Snow" Height="128"/>
         <TextBox Text="日付&#xA;Fav&#xA;部署ID" Margin="10,198,105,273.6" Background="#FFFDFDFD" Height="48"/>

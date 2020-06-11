@@ -8,7 +8,7 @@ using ThanksCardClient.Models;
 
 namespace ThanksCardClient.ViewModels
 {
-    public class CategoryCreateViewModel : BindableBase
+    public class CategoryCreateViewModel : BindableBase, INavigationAware
     {
         private readonly IRegionManager regionManager;
 
@@ -50,6 +50,8 @@ namespace ThanksCardClient.ViewModels
         {
             Department dept = new Department();
             this.Departments = await dept.GetDepartmentAsync();
+
+            this.Category = new Category();
         }
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {

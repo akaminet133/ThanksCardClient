@@ -13,7 +13,7 @@
                     <DataGridTextColumn Header="From" Binding="{Binding From.Cd}" />
                     <DataGridTextColumn Header="To" Binding="{Binding To.Cd}" />
                     <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" />
-                    <DataGridTextColumn Header="カテゴリ" Binding="{Binding Categorys.Name}" />
+                    <DataGridTextColumn Header="カテゴリ" Binding="{Binding Category.Name}" />
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

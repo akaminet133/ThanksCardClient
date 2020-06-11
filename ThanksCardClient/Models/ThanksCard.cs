@@ -93,12 +93,11 @@ namespace ThanksCardClient.Models
         #endregion
 
         #region CategorysProperty
-        private Category _Categorys;
-        [JsonIgnore]
-        public Category Categorys
+        private Category _Category;
+        public Category Category
         {
-            get { return _Categorys; }
-            set { SetProperty(ref _Categorys, value); }
+            get { return _Category; }
+            set { SetProperty(ref _Category, value); }
         }
         #endregion
 

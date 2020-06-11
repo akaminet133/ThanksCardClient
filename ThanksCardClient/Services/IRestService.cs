@@ -17,12 +17,12 @@ namespace ThanksCardClient.Services
         // DepartmentUsers REST API Client
         //Task<List<User>> GetDepartmentUsersAsync(long? DepartmentId);
 
-        // User_Dep_Kanri REST API Client
+        /* User_Dep_Kanri REST API Client
         Task<List<User_Dep_Kanri>> GetUser_Dep_KanrisAsync();
         Task<User_Dep_Kanri> PostUser_Dep_KanriAsync(User_Dep_Kanri user_Dep_Kanri);
         Task<User_Dep_Kanri> PutUser_Dep_KanriAsync(User_Dep_Kanri user_Dep_Kanri);
         Task<User_Dep_Kanri> DeleteUser_Dep_KanriAsync(long Id);
-
+        */
         // User REST API Client
         Task<List<User>> GetUsersAsync();
         Task<User> PostUserAsync(User user);

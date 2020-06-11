@@ -384,7 +384,7 @@ namespace ThanksCardClient.Services
             return responseCategory;
         }
 
-        public async Task<List<User_Dep_Kanri>> GetUser_Dep_KanrisAsync()
+        /*public async Task<List<User_Dep_Kanri>> GetUser_Dep_KanrisAsync()
         {
             List<User_Dep_Kanri> responseUser_Dep_Kanris = null;
             try
@@ -416,7 +416,7 @@ namespace ThanksCardClient.Services
         public Task<User_Dep_Kanri> DeleteUser_Dep_KanriAsync(long Id)
         {
             throw new NotImplementedException();
-        }
+        }*/
         public async Task<List<Section>> GetSectionsAsync()
         {
             List<Section> responseSections = null;

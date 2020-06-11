@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
         <StackPanel>
-            <Button Content="+部署の新規作成" Command="{Binding SectionCreateCommand}" Width="100" HorizontalAlignment="Left"/>
+            <Button Content="+課の新規作成" Command="{Binding SectionCreateCommand}" Width="100" HorizontalAlignment="Left"/>
 
             <!-- ユーザ一覧(Departmentモデルのリスト)である MainWindowViewModel.Departments をグリッド表示する。-->
             <DataGrid ItemsSource="{Binding Sections}" AutoGenerateColumns="False" CanUserAddRows="False">

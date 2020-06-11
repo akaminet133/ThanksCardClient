@@ -78,7 +78,7 @@ namespace ThanksCardClient.Models
         }
         #endregion
 
-        public async Task<List<User_Dep_Kanri>> GetUser_Dep_KanrisAsync()
+        /*public async Task<List<User_Dep_Kanri>> GetUser_Dep_KanrisAsync()
         {
             IRestService rest = new RestService();
             List<User_Dep_Kanri> User_Dep_Kanris = await rest.GetUser_Dep_KanrisAsync();
@@ -104,6 +104,6 @@ namespace ThanksCardClient.Models
             IRestService rest = new RestService();
             User_Dep_Kanri deletedUser_Dep_Kanri = await rest.DeleteUser_Dep_KanriAsync(Id);
             return deletedUser_Dep_Kanri;
-        }
+        }*/
     }
 }
