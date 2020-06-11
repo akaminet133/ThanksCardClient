@@ -50,7 +50,6 @@ namespace ThanksCardClient.ViewModels
         {
             Department dept = new Department();
             this.Departments = await dept.GetDepartmentAsync();
-
         }
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {

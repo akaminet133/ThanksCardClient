@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="ThanksCardClient.Views.MastersEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             prism:ViewModelLocator.AutoWireViewModel="True" Height="420" Width="560" FontSize="16">
+    <Grid Margin="0,0,0,-45">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0,0,-50,105" Grid.ColumnSpan="2" Background="#FFDFE4EB" RenderTransformOrigin="0.32,1.39">
+            <TextBlock Text="マスタ編集画面" RenderTransformOrigin="0.505,0.596" Foreground="#FF090909" Height="20" Background="#FFDDDDDD" Margin="0,0,-0.4,0"/>
+            <TextBlock Text="　　"/>
+            <TextBlock Foreground="#FF080808" OpacityMask="#FFF0EEEE" FontSize="16" Margin="0,0,-0.8,0"><Run Text="　　"/><InlineUIContainer>
+                    <Button Content="編集対象マスタ名" Command="{Binding SubmitCommand}" Height="25" Width="170" Background="#FFFCFCFE" />
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox x:Name="FromDepartments" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="20" Height="25" BorderBrush="#FFF0F0F0">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFFCFCFE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+                <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer><Run Text="　"/><Run Text="　"/></TextBlock>
+            <TextBlock Text="　　"/>
+            <TextBlock Margin="0,0,-0.4,0"><Run Text="        "/><Run Text="対象マスタテーブル"/><Run Text="表示    "/></TextBlock>
+            <TextBlock Margin="-30,0,-0.4,0"><Run Text="　　       "/><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Width="505" Height="137" RenderTransformOrigin="0.5,0.5"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text="　　"/>
+            <TextBlock><Run Text="        編集内容表示    "/></TextBlock>
+            <TextBlock><Run Text="        詳細選択 　　　  "/><InlineUIContainer>
+                    <TextBlock Width="120"><Run Text="        詳細入力    "/></TextBlock>
+                </InlineUIContainer></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="0,0,-0.4,0" Width="610"><Run Text="　　"/><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Width="125" Height="25"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <ComboBox ItemsSource="{Binding FromUsers}" DisplayMemberPath="Name" SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="20" Height="25" RenderTransformOrigin="0.28,-0.816"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="　　" Height="25" Width="15"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Width="120" Height="25"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="　　" Height="21" Width="20"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Content="追加" Command="{Binding SubmitCommand}" Background="#FFDDDDDD" Height="25" Width="55"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="　　" Height="21" Width="20"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Content="変更" Command="{Binding SubmitCommand}" Background="#FFDDDDDD" Height="25" Width="55"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Text="　　" Height="21" Width="20"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <Button Content="削除" Command="{Binding SubmitCommand}" Background="#FFDDDDDD" Height="25" Width="55"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBlock Height="21" Width="20"><Run Text="　"/><Run Text="　"/></TextBlock>
+                </InlineUIContainer></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

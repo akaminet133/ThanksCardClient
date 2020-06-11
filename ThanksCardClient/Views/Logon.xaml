@@ -5,31 +5,14 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid Margin="-15,0,-0.2,-0.4">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="28*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.OpacityMask>
-            <RadialGradientBrush>
-                <GradientStop Color="#FFB478F3" Offset="0"/>
-                <GradientStop Color="#FFF60B0B" Offset="1"/>
-            </RadialGradientBrush>
-        </Grid.OpacityMask>
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="4" Margin="-220,-80,-220,-145.4" Grid.RowSpan="3">
+        <StackPanel Margin="-217,88,-223.2,-211.8">
             <TextBlock Height="74" Margin="-110,0" FontSize="72" TextAlignment="Center" Text="TOMOYOSE HOTEL" FontFamily="HGSMinchoB" Foreground="#FFF1F2F7" TextDecorations="{x:Null}"/>
-            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" TextAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock FontSize="32" TextAlignment="Center" Text="ThanksCardSystem" FontFamily="HGSMinchoB" Foreground="#FFF1F2F7" TextDecorations="{x:Null}" />
             <TextBlock Text=""/>
-            <TextBlock Text=""/>
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" FontSize="20" TextAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
             <TextBlock Text=""/>
             <TextBlock Text=""/>
             <TextBlock TextAlignment="Center" FontWeight="Bold" Height="35" FontSize="24" Foreground="#FFE7E8EC" FontFamily="Yu Gothic" Margin="0,0,25,0"><Run Text="ユーザー名"/><Run Text="と"/><Run Text="パスワード"/><Run Text="を入力してください！"/></TextBlock>
@@ -46,7 +29,11 @@
             <TextBlock Text=""/>
             <TextBlock Text=""/>
             <TextBlock Text=""/>
-            <Button Content="ログイン" Command="{Binding LogonCommand}" Margin="285,0" Height="30" RenderTransformOrigin="0.5,0.5" FontSize="20" FontFamily="Yu Gothic" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Background="#FFFBFCFC"/>
+            <DockPanel HorizontalAlignment="Center">
+                <TextBlock Text="" Width="100"/>
+                <Button Content="ログイン" Command="{Binding LogonCommand}" Margin="285,0" Height="30" RenderTransformOrigin="0.5,0.5" FontSize="20" FontFamily="Yu Gothic" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Background="#FFFBFCFC"/>
+                <TextBlock Text="" Width="100"/>
+            </DockPanel>
         </StackPanel>
     </Grid>
 </UserControl>

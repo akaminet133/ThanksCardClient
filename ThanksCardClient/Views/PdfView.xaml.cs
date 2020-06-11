@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,8 +15,10 @@ namespace ThanksCardClient.Views
         public PdfView()
         {
             InitializeComponent();
+            string dirpath = Directory.GetCurrentDirectory();
+            dirpath += @"\Image\manual.pdf";
             System.Windows.Forms.MessageBox.Show("PDF画面を表示します。", "表示", MessageBoxButtons.OK);
-            System.Diagnostics.Process.Start(@"C:\Users\akamine_takaya\Desktop\ThanksCardClient\ThanksCardClient\Image\manual.pdf");
+            System.Diagnostics.Process.Start(dirpath);
         }
     }
 }

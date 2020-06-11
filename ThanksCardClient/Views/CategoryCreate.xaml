@@ -9,7 +9,8 @@
             <TextBlock Text="Name:"/>
             <TextBox Text="{Binding Category.Name}"/>
             <TextBlock Text="Department:"/>
-            <ComboBox ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValue="{Binding Categorys.DepartmentId}" SelectedValuePath="Id"/>            <Button Content="Submit" Command="{Binding SubmitCommand}"/>
+            <ComboBox ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValue="{Binding Category.DepartmentId}" SelectedValuePath="Id"/>
+            <Button Content="Submit" Command="{Binding SubmitCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

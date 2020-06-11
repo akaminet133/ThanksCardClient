@@ -41,8 +41,10 @@ namespace ThanksCardClient.ViewModels
 
         public async void OnNavigatedTo(NavigationContext navigationContext)
         {
+            // 画面遷移元から送られる SelectedCategory パラメーターを取得。
             Department dept = new Department();
             this.Departments = await dept.GetDepartmentAsync();
+            this.Section = navigationContext.Parameters.GetValue<Section>("SelectedSection");
 
         }
         public bool IsNavigationTarget(NavigationContext navigationContext)

@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>.\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -89,6 +89,15 @@
     <Compile Include="ViewModels\UserEditViewModel.cs" />
     <Compile Include="ViewModels\UserMstViewModel.cs" />
     <Compile Include="ViewModels\User_Kanri_Menu.cs" />
+    <Compile Include="Views\Aggregate.xaml.cs">
+      <DependentUpon>Aggregate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bulletinboard.xaml.cs">
+      <DependentUpon>Bulletinboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MastersEdit.xaml.cs">
+      <DependentUpon>MastersEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SectionCreate.xaml.cs">
       <DependentUpon>SectionCreate.xaml</DependentUpon>
     </Compile>
@@ -128,11 +137,20 @@
     <Compile Include="Views\CategoryMst.xaml.cs">
       <DependentUpon>CategoryMst.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Soukanzu.xaml.cs">
+      <DependentUpon>Soukanzu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ThanksCardCreate.xaml.cs">
       <DependentUpon>ThanksCardCreate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ThanksCardList.xaml.cs">
       <DependentUpon>ThanksCardList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThanksCardViewA.xaml.cs">
+      <DependentUpon>ThanksCardViewA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThanksCardViewB.xaml.cs">
+      <DependentUpon>ThanksCardViewB.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserCreate.xaml.cs">
       <DependentUpon>UserCreate.xaml</DependentUpon>
@@ -143,9 +161,24 @@
     <Compile Include="Views\UserMst.xaml.cs">
       <DependentUpon>UserMst.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserMsters.xaml.cs">
+      <DependentUpon>UserMsters.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\User_Kanri_Menu.xaml.cs">
       <DependentUpon>User_Kanri_Menu.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Aggregate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Bulletinboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MastersEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SectionCreate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -219,11 +252,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Soukanzu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ThanksCardCreate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ThanksCardList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThanksCardViewA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThanksCardViewB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,6 +281,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserMst.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserMsters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

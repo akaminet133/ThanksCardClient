@@ -18,32 +18,32 @@ namespace ThanksCardClient.Views
         private void btnAddKiwii_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            Textbox1.AppendText("🥝\n");
+            ThanksCardBody.AppendText("🥝");
         }
         private void btnAddBanana_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            Textbox1.AppendText("🍌\n");
+            ThanksCardBody.AppendText("🍌");
         }
         private void btnAddCherry_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            Textbox1.AppendText("🍒\n");
+            ThanksCardBody.AppendText("🍒");
         }
         private void btnAddArigatou_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            Textbox1.AppendText("ありがとう！\n");
+            ThanksCardBody.AppendText("ありがとう！");
         }
         private void btnAddKansha_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            Textbox1.AppendText("感謝です\n");
+            ThanksCardBody.AppendText("感謝です");
         }
         private void btnAddThanks_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            Textbox1.AppendText("Thank you!\n");
+            ThanksCardBody.AppendText("Thank you!");
         }
 
     }

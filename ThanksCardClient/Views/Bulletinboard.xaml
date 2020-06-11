@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="ThanksCardClient.Views.Bulletinboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Height="425" Width="470">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0,0,5,0.2" Background="#FFE6E7E8">
+            <TextBlock Text="　" Margin="0.010416666666667,0.010416666666667,0.010416666666667,0"/>
+            <TextBlock Margin="0.010416666666667,0.010416666666667,0.010416666666667,0"><Run Text="　　　先月の代表例　過去の代表例を表示：　"/><InlineUIContainer>
+                    <ComboBox x:Name="FromDepartments" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="65" Height="11">
+                <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text="　" Margin="0.010416666666667,0.010416666666667,0.010416666666667,0"/>
+            <TextBox Text="&quot;1位 日付　所属部署　受信者名&#xA;所属部署　送信者名&#xA;内容&#xA;&#xA;                                                                                   イイネ！の数&quot;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;" Height="102" Margin="25,0.01,25.2,0"/>
+            <TextBlock Text="　" Margin="0,0.01,0.6,0"/>
+            <TextBlock Margin="-10,0.01,-0.4,0" Height="103"><Run Text="　"/><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Margin="25,0.01,24.6,0" Height="99" Width="200"/>
+                </InlineUIContainer><InlineUIContainer>
+                    <TextBox Text="{Binding ThanksCard.Title}" Width="185" Height="99"/>
+                </InlineUIContainer></TextBlock>
+            <TextBlock Text="　" Margin="0,0.01,0.6,0"/>
+
+            <StackPanel Orientation="Horizontal" Margin="25,0.01,0,0">
+                <TextBox Text="{Binding ThanksCard.Title}" RenderTransformOrigin="0.5,0.5" Width="110"/>
+                <ComboBox x:Name="FromDepartment2" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="20" >
+                    <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding SelectedValue, ElementName=FromDepartments}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+            </StackPanel>
+
+            <TextBox Text="1" Margin="25,0"/>
+            <TextBox Text="2" Margin="25,0"/>
+            <TextBox Text="3" Margin="25,0"/>
+            <TextBox Text="4" Margin="25,0"/>
+            <TextBox Text="5" Margin="25,0"/>
+            <StackPanel Orientation="Horizontal" Margin="0.010416666666667,0.010416666666667,0.010416666666667,0"/>
+            <ListBox ItemsSource="{Binding Tags}" IsSynchronizedWithCurrentItem="True" SelectionMode="Multiple" DisplayMemberPath="Name" Height="15" Margin="345,0.01,0,0" HorizontalAlignment="Left" Width="95" Background="#FFB4AFAF">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="IsSelected" Value="{Binding Selected}" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </StackPanel>
+        <TextBlock Text="　" Margin="-75,159,525.4,249.8"/>
+    </Grid>
+</UserControl>
