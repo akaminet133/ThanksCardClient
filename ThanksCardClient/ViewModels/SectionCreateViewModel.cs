@@ -8,7 +8,7 @@ using ThanksCardClient.Models;
 
 namespace ThanksCardClient.ViewModels
 {
-    public class SectionCreateViewModel : BindableBase
+    public class SectionCreateViewModel : BindableBase, INavigationAware
     {
         private readonly IRegionManager regionManager;
 
@@ -18,6 +18,15 @@ namespace ThanksCardClient.ViewModels
         {
             get { return _Section; }
             set { SetProperty(ref _Section, value); }
+        }
+        #endregion
+
+        #region SectionsProperty
+        private List<Section> _Sections;
+        public List<Section> Sections
+        {
+            get { return _Sections; }
+            set { SetProperty(ref _Sections, value); }
         }
         #endregion
 
@@ -44,16 +53,20 @@ namespace ThanksCardClient.ViewModels
             // 画面遷移元から送られる SelectedCategory パラメーターを取得。
             Department dept = new Department();
             this.Departments = await dept.GetDepartmentAsync();
-            this.Section = navigationContext.Parameters.GetValue<Section>("SelectedSection");
 
+            this.Section = new Section();
         }
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
             return true;
         }
 
-        public void OnNavigatedFrom(NavigationContext navigationContext)
+        public async void OnNavigatedFrom(NavigationContext navigationContext)
         {
+            // 画面遷移元から送られる SelectedCategory パラメーターを取得。
+            Department dept = new Department();
+            this.Departments = await dept.GetDepartmentAsync();
+
             //throw new NotImplementedException();
         }
 

@@ -112,8 +112,8 @@ namespace ThanksCardClient.ViewModels
 
         void ExecuteShowManagementMstCommand()
         {
-            System.Windows.Forms.MessageBox.Show("ファイルを上書きしますか？",
-        "質問",
+            System.Windows.Forms.MessageBox.Show("今後実装予定の機能です\n現在は経営権限確認用にメッセージボックスのみ表示されます。",
+        "連携図表示機能",
         MessageBoxButtons.YesNoCancel,
         MessageBoxIcon.Exclamation,
         MessageBoxDefaultButton.Button2);

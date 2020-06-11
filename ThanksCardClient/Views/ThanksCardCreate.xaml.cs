@@ -15,20 +15,20 @@ namespace ThanksCardClient.Views
         }
 
         // [テキストを追記する]ボタンクリック時の処理
-        private void btnAddKiwii_Click(object sender, EventArgs e)
+        private void btnAddSmile_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            ThanksCardBody.AppendText("🥝");
+            ThanksCardBody.AppendText("😊");
         }
-        private void btnAddBanana_Click(object sender, EventArgs e)
+        private void btnAddOjigi_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            ThanksCardBody.AppendText("🍌");
+            ThanksCardBody.AppendText("m(__)m");
         }
-        private void btnAddCherry_Click(object sender, EventArgs e)
+        private void btnAddGood_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            ThanksCardBody.AppendText("🍒");
+            ThanksCardBody.AppendText("👍");
         }
         private void btnAddArigatou_Click(object sender, EventArgs e)
         {
@@ -38,7 +38,7 @@ namespace ThanksCardClient.Views
         private void btnAddKansha_Click(object sender, EventArgs e)
         {
             // ★★★現在のTextBoxの末尾にテキストを追記する★★★
-            ThanksCardBody.AppendText("感謝です");
+            ThanksCardBody.AppendText("感謝です。");
         }
         private void btnAddThanks_Click(object sender, EventArgs e)
         {

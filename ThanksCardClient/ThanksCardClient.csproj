@@ -62,7 +62,7 @@
     <Compile Include="Models\Comment_Rireki.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Sections.cs" />
+    <Compile Include="Models\Section.cs" />
     <Compile Include="Models\ThanksCard.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\User_Dep_Kanri.cs" />
@@ -311,7 +311,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Image\manual.pdf" />
+    <None Include="Image\manual.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
